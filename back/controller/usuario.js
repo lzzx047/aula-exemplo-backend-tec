@@ -54,9 +54,10 @@ class ControllerUser {
         }
     }
     async Login(req, res) {
+        return res.send({ token: 123 })
         try {
 
-            const usuario = await ServiceUsuario.Login
+            const usuario = await ServiceUsuario.Login()
 
             res.status(200).send({ usuario })
         } catch (error) {

@@ -1,10 +1,16 @@
 import { useState } from 'react';
 import './style.css'
-import { getLogin } from '../../api/api';
+import { loginUser } from '../../api/user';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+
+const handleSubmit = (e) => {
+                e.preventDefault()
+                loginUser()
+            }
+
 
   return (
     <div className="login-container">
@@ -34,10 +40,7 @@ export default function Login() {
         <button
             className="button"
             type="submit"
-            onClick={(e) => {
-                e.preventDefault()
-                getLogin()
-            }}
+            onClick={handleSubmit}
         >Entrar</button>
         <button
             className="button back-button"
